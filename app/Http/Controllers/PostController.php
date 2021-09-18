@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('post.post', ['posts' => $posts]);
     }
 
     /**
@@ -23,7 +26,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.form')->with([
+            'id' => '',
+            'title' => '', 
+            'body' => ''
+        ]);
     }
 
     /**
@@ -34,7 +41,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create([
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+        return redirect()->route('post.show', [
+            'id' => $post->id
+        ])->with([
+            'title' => $post->title,
+            'body' => $post->body
+        ]);
     }
 
     /**
@@ -45,7 +62,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post.details', [
+            'title' => $post->title,
+            'body' => $post->body
+        ]);
     }
 
     /**
@@ -56,7 +77,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post.form', [
+            'id' => $post->id,
+            'title' => $post->title, 
+            'body' => $post->body
+        ]);
     }
 
     /**
@@ -68,7 +94,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Post::where('id', $id)->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+        $post = Post::find($id);
+        return redirect()->route('post.show', ['id' => $post->id])->with([
+            'id' => $post->id,
+            'title' => $post->title,
+            'body' => $post->body
+        ]);
     }
 
     /**
@@ -79,6 +114,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::destroy($id);
+        return redirect()->route('post.root');
     }
 }
