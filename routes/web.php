@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Website\PostController as WebsitePostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,12 @@ Route::group([
 });
 
 
+Route::group([], function () {
+    Route::get('/post', [WebsitePostController::class, 'index'])->name('website.post.root');
+    Route::get('/post/form', [WebsitePostController::class, 'create'])->name('website.post.create');
+    Route::get('/post/form/{id}', [WebsitePostController::class, 'edit'])->name('website.post.edit');
+    Route::get('/post/{id}', [WebsitePostController::class, 'show'])->name('website.post.show');
+    Route::post('/post', [WebsitePostController::class, 'store'])->name('website.post.store');
+    Route::put('/post/{id}', [WebsitePostController::class, 'update'])->name('website.post.update');
+    Route::delete('/post/{id}', [WebsitePostController::class, 'destroy'])->name('website.post.destroy');
+});

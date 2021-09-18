@@ -14,7 +14,7 @@
                 $formType = $id ? route('admin.post.root') . '/' . $id : route('admin.post.store');
             @endphp
 
-            <form action="{{ $formType }}" method="POST">
+            <form action="{{ $formType }}" method="POST" enctype="multipart/form-data">
                 @if ($id)
                     @method('PUT')
                 @endif
@@ -24,6 +24,10 @@
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" id="title" placeholder="Enter title"
                         value="{{ $title }}">
+                </div>
+                <div class="form-group">
+                    <label for="post_image">Upload Image</label>
+                    <input type="file" name="post_image" class="form-control-file" id="post_image" placeholder="Upload image">
                 </div>
                 <div class="form-group">
                     <label for="body">Body</label>

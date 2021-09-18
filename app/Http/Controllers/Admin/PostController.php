@@ -42,15 +42,28 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'title' => ['required', 'unique:posts', 'max:100'],
+            'post_image' => ['file'],
+            'body' => ['required'],
+        ]);
+
+        if($request->post_image) {
+            $validatedData['post_image'] = $request->file('post_image')->store('assets');
+        }
+
         $post = Post::create([
             'user_id' => Auth::user()->id,
-            'title' => $request->title,
-            'body' => $request->body
+            'title' => $validatedData['title'],
+            'post_image' => $validatedData['post_image'],
+            'body' => $validatedData['body']
         ]);
+
         return redirect()->route('admin.post.show', [
             'id' => $post->id
         ])->with([
             'title' => $post->title,
+            'post_image' => $post->post_image,
             'body' => $post->body
         ]);
     }
