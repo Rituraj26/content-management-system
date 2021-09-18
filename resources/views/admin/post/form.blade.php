@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8">
             @php
-                $formType = $id ? route('post.root') . '/' . $id : route('post.store');
+                $formType = $id ? route('admin.post.root') . '/' . $id : route('admin.post.store');
             @endphp
 
             <form action="{{ $formType }}" method="POST">

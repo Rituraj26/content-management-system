@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('post.post', ['posts' => $posts]);
+        return view('admin.post.list', ['posts' => $posts]);
     }
 
     /**
@@ -26,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.form')->with([
+        return view('admin.post.form')->with([
             'id' => '',
             'title' => '', 
             'body' => ''
@@ -46,7 +47,7 @@ class PostController extends Controller
             'title' => $request->title,
             'body' => $request->body
         ]);
-        return redirect()->route('post.show', [
+        return redirect()->route('admin.post.show', [
             'id' => $post->id
         ])->with([
             'title' => $post->title,
@@ -63,8 +64,9 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('post.details', [
+        return view('admin.post.details', [
             'title' => $post->title,
+            'image' => $post->post_image,
             'body' => $post->body
         ]);
     }
@@ -78,7 +80,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('post.form', [
+        return view('admin.post.form', [
             'id' => $post->id,
             'title' => $post->title, 
             'body' => $post->body
@@ -99,7 +101,7 @@ class PostController extends Controller
             'body' => $request->body
         ]);
         $post = Post::find($id);
-        return redirect()->route('post.show', ['id' => $post->id])->with([
+        return redirect()->route('admin.post.show', ['id' => $post->id])->with([
             'id' => $post->id,
             'title' => $post->title,
             'body' => $post->body
@@ -115,6 +117,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
-        return redirect()->route('post.root');
+        return redirect()->route('admin.post.root');
     }
 }
