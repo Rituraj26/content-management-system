@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Website\PostController as WebsitePostController;
 
 /*
@@ -34,6 +35,8 @@ Route::group([
     Route::post('/post', [PostController::class, 'store'])->name('admin.post.store');
     Route::put('/post/{id}', [PostController::class, 'update'])->name('admin.post.update');
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('admin.post.destroy');
+
+    Route::get('/user', [UserController::class, 'index'])->name('admin.user.root');
 });
 
 

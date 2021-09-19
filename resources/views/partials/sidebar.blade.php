@@ -37,6 +37,12 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.user.root') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Users</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

@@ -20,28 +20,25 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th class="text-center align-middle">Id</th>
                                     <th class="text-center align-middle">Name</th>
-                                    <th class="text-center align-middle">Title</th>
-                                    <th class="text-center align-middle">Image</th>
-                                    <th class="text-center align-middle">Body</th>
+                                    <th class="text-center align-middle">Email</th>
                                     <th class="text-center align-middle">Updated Date</th>
                                     <th class="text-center align-middle">Created Date</th>
                                     <th class="text-center align-middle">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($posts as $post)
-                                    @if (count($posts) === 0)
-                                        <p>No Posts Available</p>
+                                @foreach ($users as $user)
+                                    @if (count($users) === 0)
+                                        <p>No Users Available</p>
                                     @endif
                                     <tr>
-                                        <td class="text-center align-middle">{{ $post->id }}</td>
-                                        <td class="align-middle">{{ $post->title }}</td>
-                                        <td class="align-middle"><img class="img-fluid" style="width: 10rem"
-                                                src="{{ $post->post_image }}" alt="{{ $post->title }}"></td>
-                                        <td class="align-middle">{{ $post->body }}</td>
-                                        <td class="align-middle">{{ $post->updated_at }}</td>
-                                        <td class="align-middle">{{ $post->created_at }}</td>
+                                        <td class="text-center align-middle">{{ $user->id }}</td>
+                                        <td class="align-middle">{{ $user->name }}</td>
+                                        <td class="align-middle">{{ $user->email }}</td>
+                                        <td class="align-middle">{{ $user->updated_at }}</td>
+                                        <td class="align-middle">{{ $user->created_at }}</td>
                                         <td class="text-center align-middle">
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -51,16 +48,16 @@
                                                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                                     aria-labelledby="dropdownMenuLink">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.post.root') . '/' . $post->id }}">View
-                                                        Post</a>
+                                                        href="{{ route('admin.post.root') . '/' . $user->id }}">View
+                                                        User</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.post.create') . '/' . $post->id }}">Edit
-                                                        Post</a>
-                                                    <form action="{{ route('admin.post.root') . '/' . $post->id }}"
+                                                        href="{{ route('admin.post.create') . '/' . $user->id }}">Edit
+                                                        User</a>
+                                                    <form action="{{ route('admin.post.root') . '/' . $user->id }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Delete Post</button>
+                                                        <button type="submit" class="dropdown-item">Delete User</button>
                                                     </form>
                                                 </div>
                                             </div>
