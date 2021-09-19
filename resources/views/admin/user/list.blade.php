@@ -37,8 +37,8 @@
                                         <td class="text-center align-middle">{{ $user->id }}</td>
                                         <td class="align-middle">{{ $user->name }}</td>
                                         <td class="align-middle">{{ $user->email }}</td>
-                                        <td class="align-middle">{{ $user->updated_at }}</td>
-                                        <td class="align-middle">{{ $user->created_at }}</td>
+                                        <td class="align-middle">{{ $user->updated_at->diffForHumans() }}</td>
+                                        <td class="align-middle">{{ $user->created_at->diffForHumans() }}</td>
                                         <td class="text-center align-middle">
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"

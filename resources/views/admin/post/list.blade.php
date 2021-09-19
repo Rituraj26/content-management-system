@@ -44,8 +44,8 @@
                                         <td class="align-middle"><img class="img-fluid" style="width: 10rem"
                                                 src="{{ $post->post_image }}" alt="{{ $post->title }}"></td>
                                         <td class="align-middle">{{ $post->body }}</td>
-                                        <td class="align-middle">{{ $post->updated_at }}</td>
-                                        <td class="align-middle">{{ $post->created_at }}</td>
+                                        <td class="align-middle">{{ $post->updated_at->diffForHumans() }}</td>
+                                        <td class="align-middle">{{ $post->created_at->diffForHumans() }}</td>
                                         <td class="text-center align-middle">
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"

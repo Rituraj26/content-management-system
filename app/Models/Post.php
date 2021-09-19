@@ -17,6 +17,16 @@ class Post extends Model
         'body'
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'date:Y-m-d'
+    ];
+
+
     public function user() {
         return $this->belongsTo(User::class);
     }
