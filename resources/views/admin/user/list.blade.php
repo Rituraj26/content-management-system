@@ -16,7 +16,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Post Table</h6>
                 </div> --}}
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive-md">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -48,8 +48,8 @@
                                                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                                     aria-labelledby="dropdownMenuLink">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.post.root') . '/' . $user->id }}">View
-                                                        User</a>
+                                                        href="{{ route('admin.user.root') . '/' . $user->id . '/post' }}">View
+                                                        Posts</a>
                                                     <a class="dropdown-item"
                                                         href="{{ route('admin.post.create') . '/' . $user->id }}">Edit
                                                         User</a>
@@ -71,6 +71,12 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="row text-center">
+        <div class="col-12">
+            {{ $users->links() }}
+        </div>
+    </div> --}}
 @endsection
 
 @section('scripts')

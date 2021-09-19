@@ -2,11 +2,15 @@
 
 @section('content')
 
-    {{-- <div class="row mb-4">
+    <div class="row">
         <div class="col-12">
-            <h1>Posts</h1>
+            @if (session('status'))
+                <div class="alert alert-{{ session('status') }}" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
         </div>
-    </div> --}}
+    </div>
 
 
     <div class="row">
@@ -16,7 +20,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Post Table</h6>
                 </div> --}}
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive-md">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -74,6 +78,12 @@
             </div>
         </div>
     </div>
+
+    <div class="row text-center">
+        <div class="col-12">
+            {{ $posts->links() }}
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -83,6 +93,6 @@
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+    {{-- <script src="{{ asset('js/demo/datatables-demo.js') }}"></script> --}}
 
 @endsection

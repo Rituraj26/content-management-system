@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('admin.post.list', ['posts' => $posts]);
     }
 
@@ -50,7 +50,7 @@ class PostController extends Controller
         ]);
 
         if($request->post_image) {
-            $validatedData['post_image'] = $request->file('post_image')->store('assets');
+            $validatedData['post_image'] = $request->file('post_image')->store('images');
         }
 
         $post = Post::create([
@@ -128,9 +128,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Post::destroy($id);
-        return redirect()->route('admin.post.root');
+        $request->session()->flash('status', 'success');
+        $request->session()->flash('message', 'Post was succesfully deleted!!!');
+        return back();
     }
 }

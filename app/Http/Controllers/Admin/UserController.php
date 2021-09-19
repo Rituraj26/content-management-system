@@ -15,7 +15,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Get all users who has a post.
      *
      * @return \Illuminate\Http\Response
      */
@@ -50,10 +50,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+     
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -61,10 +61,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function store(Request $request)
+    // {
+        
+    // }
 
     /**
      * Display the specified resource.
@@ -74,7 +74,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = User::find($id)->posts()->paginate(5);
+        return view('admin.post.list')->with([
+            'posts' => $posts,
+        ]);
     }
 
     /**

@@ -26,7 +26,8 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'middleware' => 'auth'
 ], function () {
     Route::get('/post', [PostController::class, 'index'])->name('admin.post.root');
     Route::get('/post/form', [PostController::class, 'create'])->name('admin.post.create');
@@ -37,6 +38,7 @@ Route::group([
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('admin.post.destroy');
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user.root');
+    Route::get('/user/{id}/post', [UserController::class, 'show'])->name('admin.user.post');
 });
 
 
