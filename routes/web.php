@@ -39,6 +39,7 @@ Route::group([
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user.root');
     Route::get('/user/{id}/post', [UserController::class, 'show'])->name('admin.user.post');
+    Route::get('/user/{id}/profile', [UserController::class, 'showProfile'])->name('admin.user.profile');
 });
 
 

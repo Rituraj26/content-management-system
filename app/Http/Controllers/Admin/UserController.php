@@ -113,4 +113,8 @@ class UserController extends Controller
     {
         //
     }
+
+    public function showProfile($id) {
+        return view('admin.user.profile');
+    }
 }
