@@ -43,6 +43,12 @@
             <span>Users</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.task.stages') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Stages</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

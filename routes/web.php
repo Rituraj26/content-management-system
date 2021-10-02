@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Website\PostController as WebsitePostController;
 
 /*
@@ -40,6 +41,8 @@ Route::group([
     Route::get('/user', [UserController::class, 'index'])->name('admin.user.root');
     Route::get('/user/{id}/post', [UserController::class, 'show'])->name('admin.user.post');
     Route::get('/user/{id}/profile', [UserController::class, 'showProfile'])->name('admin.user.profile');
+
+    Route::get('/task/stages', [TaskController::class, 'index'])->name('admin.task.stages');
 });
 
 
@@ -52,3 +55,4 @@ Route::group([], function () {
     Route::put('/post/{id}', [WebsitePostController::class, 'update'])->name('website.post.update');
     Route::delete('/post/{id}', [WebsitePostController::class, 'destroy'])->name('website.post.destroy');
 });
+

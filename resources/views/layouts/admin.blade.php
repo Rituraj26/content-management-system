@@ -29,8 +29,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+   
 
 </head>
 
@@ -50,7 +49,7 @@
                 @include('partials.navbar')
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" id="#app">
 
                     <!-- Page Heading -->
                     @yield('content')
@@ -83,6 +82,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+     <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}"></script>
 
     @yield('modals')
 
