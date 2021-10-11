@@ -44,9 +44,9 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.task.stages') }}">
+        <a class="nav-link" href="{{ route('admin.task') }}">
             <i class="fas fa-fw fa-users"></i>
-            <span>Stages</span></a>
+            <span>Tasks</span></a>
     </li>
 
     <!-- Divider -->

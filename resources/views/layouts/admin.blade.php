@@ -84,7 +84,7 @@
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
      <!-- Scripts -->
-    {{-- <script src="{{ mix('js/app.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     @yield('modals')
 

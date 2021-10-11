@@ -16,16 +16,16 @@ class Task extends Model
 
     public function tag()
     {
-        return $this->hasOne(Task::class);
+        return $this->belongsTo(Tag::class);
     }
 
     public function statusList()
     {
-        return $this->hasOne(StatusList::class);
+        return $this->belongsTo(StatusList::class);
     }
 
     public function priorityList()
     {
-        return $this->hasOne(PriorityList::class);
+        return $this->belongsTo(PriorityList::class);
     }
 }

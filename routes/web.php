@@ -42,7 +42,7 @@ Route::group([
     Route::get('/user/{id}/post', [UserController::class, 'show'])->name('admin.user.post');
     Route::get('/user/{id}/profile', [UserController::class, 'showProfile'])->name('admin.user.profile');
 
-    Route::get('/task/stages', [TaskController::class, 'index'])->name('admin.task.stages');
+    Route::get('/task', [TaskController::class, 'index'])->name('admin.task');
 });
 
 

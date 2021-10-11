@@ -13,4 +13,9 @@ class PriorityList extends Model
     {
         return $this->hasOne(Feature::class);
     }
+
+    public function task()
+    {
+        return $this->hasOne(Task::class);
+    }
 }
