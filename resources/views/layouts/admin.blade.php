@@ -13,78 +13,75 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+
+    <!-- Plugin css for this page -->
+    {{-- <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css"> --}}
+
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-   
-
 </head>
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div class="container-scroller">
 
-        @include('partials.sidebar')
+        @include('partials.navbar')
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div class="container-fluid page-body-wrapper">
+            @include('partials.theme-settings')
+            @include('partials.right-sidebar')
+            @include('partials.sidebar')
 
-            <!-- Main Content -->
-            <div id="content">
-
-                @include('partials.navbar')
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid" id="#app">
-
-                    <!-- Page Heading -->
+            <div class="main-panel">
+                <!-- Main Content -->
+                <div class="content-wrapper">
                     @yield('content')
-
                 </div>
-                <!-- /.container-fluid -->
 
+                @include('partials.footer')
             </div>
-            <!-- End of Main Content -->
 
-            @include('partials.footer')
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+    <!-- plugins:js -->
+    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('js/components/dataTables.select.min.js') }}"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/components/off-canvas.js') }}"></script>
+    <script src="{{ asset('js/components/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('js/components/template.js') }}"></script>
+    <script src="{{ asset('js/components/settings.js') }}"></script>
+    <script src="{{ asset('js/components/todolist.js') }}"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/components/dashboard.js') }}"></script>
+    <script src="{{ asset('js/components/Chart.roundedBarCharts.js') }}"></script>
+    <!-- End custom js for this page-->
 
-     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('modals')
 

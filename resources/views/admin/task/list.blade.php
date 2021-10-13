@@ -20,6 +20,21 @@
                     <div class="col-md-3">
                         <div class="p-3">
                             <button class="btn btn-primary w-100">Add Task</button>
+                            <ul class="list-group mt-3">
+                                @foreach ($status as $stats)
+                                    <li class="list-group-item h5 mb-0 border-0 text-capitalize">
+                                        {{ $stats->name }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="h5 mt-4">Tags</div>
+                            <ul class="list-group mt-3">
+                            @foreach ($tags as $tag)
+                                <li class="list-group-item h5 mb-0 border-0 text-capitalize">
+                                    {{ $tag->name }}
+                                </li>
+                            @endforeach
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -41,7 +56,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('scripts')

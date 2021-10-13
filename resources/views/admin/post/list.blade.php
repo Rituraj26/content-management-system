@@ -21,16 +21,15 @@
                 </div> --}}
                 <div class="card-body">
                     <div class="table-responsive-md">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th class="text-center align-middle">Name</th>
-                                    <th class="text-center align-middle">Title</th>
-                                    <th class="text-center align-middle">Image</th>
-                                    <th class="text-center align-middle">Body</th>
-                                    <th class="text-center align-middle">Updated Date</th>
-                                    <th class="text-center align-middle">Created Date</th>
-                                    <th class="text-center align-middle">Action</th>
+                                    <th class="align-middle">Name</th>
+                                    <th class="align-middle">Title</th>
+                                    <th class="align-middle">Image</th>
+                                    <th class="align-middle">Updated Date</th>
+                                    <th class="align-middle">Created Date</th>
+                                    <th class="align-middle">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,14 +38,15 @@
                                         <p>No Posts Available</p>
                                     @endif
                                     <tr>
-                                        <td class="text-center align-middle">{{ $post->id }}</td>
-                                        <td class="align-middle">{{ $post->title }}</td>
-                                        <td class="align-middle"><img class="img-fluid" style="width: 10rem"
-                                                src="{{ $post->post_image }}" alt="{{ $post->title }}"></td>
-                                        <td class="align-middle">{{ $post->body }}</td>
-                                        <td class="align-middle">{{ $post->updated_at->diffForHumans() }}</td>
-                                        <td class="align-middle">{{ $post->created_at->diffForHumans() }}</td>
-                                        <td class="text-center align-middle">
+                                        <td class="text-center align-middle text-wrap">{{ $post->id }}</td>
+                                        <td class="align-middle text-wrap">{{ $post->title }}</td>
+                                        <td class="align-middle">
+                                            <img class="img-fluid" src="{{ $post->post_image }}"
+                                                alt="{{ $post->title }}">
+                                        </td>
+                                        <td class="align-middle text-wrap">{{ $post->updated_at->diffForHumans() }}</td>
+                                        <td class="align-middle text-wrap">{{ $post->created_at->diffForHumans() }}</td>
+                                        <td class="text-center align-middle text-wrap">
                                             <div class="dropdown no-arrow">
                                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,12 +87,4 @@
 @endsection
 
 @section('scripts')
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    {{-- <script src="{{ asset('js/demo/datatables-demo.js') }}"></script> --}}
-
 @endsection

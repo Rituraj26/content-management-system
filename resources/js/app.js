@@ -3,10 +3,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
- const feather = require('feather-icons');
-require("./bootstrap");
 
-window.Vue = require("vue").default;
+// window.Vue = require("vue").default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +17,7 @@ window.Vue = require("vue").default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component("task-stages", require("./components/TaskStages").default);
+// Vue.component("task-stages", require("./components/TaskStages").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +25,6 @@ Vue.component("task-stages", require("./components/TaskStages").default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue();
+// const app = new Vue();
 
-app.mount("#app");
+// app.mount("#app");
