@@ -30,38 +30,39 @@
         rel="stylesheet">
 
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body id="page-top">
+    <div id="app">
+        <!-- Page Wrapper -->
+        <div class="container-scroller">
 
-    <!-- Page Wrapper -->
-    <div class="container-scroller">
+            @include('partials.navbar')
 
-        @include('partials.navbar')
+            <!-- Content Wrapper -->
+            <div class="container-fluid page-body-wrapper">
+                @include('partials.theme-settings')
+                @include('partials.right-sidebar')
+                @include('partials.sidebar')
 
-        <!-- Content Wrapper -->
-        <div class="container-fluid page-body-wrapper">
-            @include('partials.theme-settings')
-            @include('partials.right-sidebar')
-            @include('partials.sidebar')
+                <div class="main-panel">
+                    <!-- Main Content -->
+                    <div class="content-wrapper">
+                        @yield('content')
+                    </div>
 
-            <div class="main-panel">
-                <!-- Main Content -->
-                <div class="content-wrapper">
-                    @yield('content')
+                    @include('partials.footer')
                 </div>
 
-                @include('partials.footer')
+                <!-- End of Content Wrapper -->
+
             </div>
-
-            <!-- End of Content Wrapper -->
-
         </div>
+        <!-- End of Page Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
-
     <!-- plugins:js -->
     <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
 
