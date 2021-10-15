@@ -12,15 +12,32 @@
         </div>
     </div> --}}
 
-    <div class="row">
+    <div class="row mb-4 text-right">
+        <div class="col-md-12">
+            <button class="btn btn-primary" data-toggle="open-right-sidebar">Add Task</button>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        @foreach ($status as $state)
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-transparent text-capitalize">{{ $state->name }}</div>
+                    <div class="card-body">
+                        Data
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- <div class="row">
         <div class="col-12">
             <div class="card shadow-sm mb-4">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="p-3">
                             <button class="btn btn-primary w-100">Add Task</button>
-
-                            <tasks></tasks>
                             <ul class="list-group mt-3">
                                 @foreach ($status as $stats)
                                     <li class="list-group-item h5 mb-0 border-0 text-capitalize">
@@ -58,15 +75,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('scripts')
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
+    @include ('admin.task.scripts.add-task-sidebar')
     <!-- Page level custom scripts -->
     {{-- <script src="{{ asset('js/demo/datatables-demo.js') }}"></script> --}}
 
